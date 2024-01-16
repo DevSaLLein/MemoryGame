@@ -64,12 +64,16 @@ const checkCards = () => {
             secondCard = '';
         }, 500)
     }
+
 }
 
 let firstCard = '';
 let secondCard = '';
 
 const revealCard = ({ target }) => {
+
+    if (target.parentNode.classList.contains('disabled-card')) return;
+    if (target.parentNode.classList.contains('reveal-card')) return;
 
     if (firstCard === '') {
         target.parentNode.classList.add('reveal-card');
