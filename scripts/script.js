@@ -20,6 +20,25 @@ const createElement = (tagName, className) => {
     return element;
 }
 
+const restartGame = () => {
+    location.reload();
+}
+
+const checkFinishGame = () => {
+
+    const cardsDisabled = document.querySelectorAll('.disabled-card');
+
+    if(cardsDisabled.length == 18 ) {
+        
+        const modal = document.querySelector('#modal');
+        const button = document.querySelector('#modal__button');
+
+        modal.style.visibility = 'visible';
+
+        button.addEventListener('click', restartGame);
+    }
+}
+
 const checkCards = () => {
 
     const firstCharactere  = firstCard.getAttribute('data-character');
@@ -33,12 +52,13 @@ const checkCards = () => {
         firstCard = '';
         secondCard = '';
 
+        checkFinishGame();
+
     } else {
         setTimeout(() => {
 
             firstCard.classList.remove('reveal-card');
             secondCard.classList.remove('reveal-card');
-
             
             firstCard = '';
             secondCard = '';
@@ -62,7 +82,6 @@ const revealCard = ({ target }) => {
 
         checkCards();
     }
-
 }
 
 const createCard = (character) => {    
@@ -83,7 +102,6 @@ const createCard = (character) => {
 
     return card;
 }
-
 
 const loadGame = () => {
     duplicateCharacter = [...characters, ...characters];
