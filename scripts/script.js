@@ -1,11 +1,8 @@
 const grid = document.querySelector('#grid');
 
 const characters = [
-    'book',
     'coffin',
-    'eye',
     'hat',
-    'pumpklin',
     'scarecrow',
     'voodo',
     'witcher',
@@ -28,7 +25,7 @@ const checkFinishGame = () => {
 
     const cardsDisabled = document.querySelectorAll('.disabled-card');
 
-    if(cardsDisabled.length == 18 ) {
+    if(cardsDisabled.length == 12 ) {
         
         const modal = document.querySelector('#modal');
         const button = document.querySelector('#modal__button');
